@@ -16,6 +16,8 @@ class TasksController < ApplicationController
   
   def create
       @task = Task.new(task_params)
+      @task.user = current_user
+      
       
       if @task.save
           flash[:success] = 'taskが正常に登録されました'
